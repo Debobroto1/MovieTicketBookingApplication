@@ -2,12 +2,8 @@ package com.accounts;
 
 import com.datatypes.Address;
 
-public class Admin {
-	private String name;
-	private String emailAddress;
-	private Address address;
-	private String phoneNumber;
-
+public class Admin extends Person{
+	
 	public void addMovie() {
 
 	}
