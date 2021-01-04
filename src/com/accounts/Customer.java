@@ -10,7 +10,5 @@ public class Customer extends Person {
 	void makeBookings() {
 		
 	}
-public void createAccount() {
-		
-	}
+
 }

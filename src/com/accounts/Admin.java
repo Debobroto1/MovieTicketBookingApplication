@@ -15,4 +15,8 @@ public class Admin extends Person{
 	public void blockUser() {
 
 	}
+	
+	public void createAccount() {
+		
+	}
 }
