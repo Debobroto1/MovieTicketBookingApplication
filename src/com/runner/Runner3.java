@@ -5,89 +5,80 @@ import java.util.Scanner;
 import com.accounts.Admin;
 import com.datatypes.Address;
 
-public class Runner {
+public class Runner3 {
 	private static Address userAddress;
 	private static Admin adminUser;
 	private static String userPassword;
-	private static Scanner sc;
 
 	public static void main(String[] args) {
-		sc=new Scanner(System.in);
 		System.out.println("=============Welcome to the  MTB Application==============");
 		System.out.println("What you want to do  today");
 		System.out.println("1. Add Admin");
 		System.out.println("2. Add Customer");
 		System.out.println("3. FDO");
-		System.out.println("Enter a choice [1 to 3]");
 
 		// You want to take input from the user
-		short userOption = sc.nextShort();
-		if (userOption == 1) {
-		System.out.println("You have eneter the option " +userOption);
+		short userOption = 1;
+
 		addPersonalInfo();
 		setAddressInfo();
 		getAccountInfo(adminUser);
-		}
-		else if  (userOption == 2) {
-			System.out.println("Enter Customer");
-		}
-		else if  (userOption == 3) {
-			System.out.println("Enter FDO");
-		}
-		else
-			System.out.println("Invalid Input ,retry again!!!!!!!!");
+
 	}
+
 	private static void getAccountInfo(Admin user) {
 		System.out.println(user.getEmailAddress());
 		System.out.println(user.getName());
 		System.out.println(user.getPhoneNumber());
 	}
+
 	private static void setAddressInfo() {
 		// TODO Auto-generated method stub
 		System.out.println("--------Enter Address Info-------");
 		System.out.println("Enter admin street Address");
-		String userStreetAddress = sc.nextLine();
+		String userStreetAddress = "MG Road";
 
 		System.out.println("Enter city");
-		String userCity = sc.nextLine();
+		String userCity = "Bangalore";
 
 		System.out.println("Enter state");
-		String userState = sc.nextLine();
+		String userState = "Karnataka";
 
 		System.out.println("Enter country");
-		String userCountry = sc.nextLine();
+		String userCountry = "India";
 
 		System.out.println("Enter Pincode");
-		String userPincode = sc.nextLine();
+		String userPincode = "400104";
 
 		Address address = new Address();
 		address.setStreetAddress(userStreetAddress);
 		address.setCity(userCity);
-		address.setCountry(userCountry);
 		address.setState(userState);
+		address.setCountry(userCountry);
 		address.setZipcode(userPincode);
-		adminUser.setAddress(address);
+		adminUser.setAddress(userAddress);
 		adminUser.createAccount(userPassword);
 	}
+
 	private static void addPersonalInfo() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the Admin Name.....");
-		String userName = sc.nextLine();
+		String userName = "Dhanush";
 
 		System.out.println("Enter the Admin Phone Number.....");
-		String userPhonenumber = sc.nextLine();
+		String userPhonenumber = "987582083";
 
 		System.out.println("Enter the Admin email id.....");
-		String userEmailAddress = sc.nextLine();
+		String userEmailAddress = "Dhanush@yahoo.com";
 
 		System.out.println("Set a password");
-		userPassword = sc.nextLine();
+		String userPassword = "1234";
 
 		Admin admin = new Admin();
 		admin.setName(userName);
 		admin.setEmailAddress(userEmailAddress);
 		admin.setPhoneNumber(userPhonenumber);
 
-//		PavaSystem.out.println("Account created successfully");
+//		System.out.println("Account created successfully");
 	}
 }

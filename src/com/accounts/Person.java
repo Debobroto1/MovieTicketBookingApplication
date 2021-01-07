@@ -1,5 +1,6 @@
 package com.accounts;
 
+import com.datatypes.AccountStatus;
 import com.datatypes.Address;
 
 public class Person {
@@ -41,7 +42,11 @@ public class Person {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public void createAccount() {
-
+	public void createAccount(String password) {
+		Account account = new Account();
+		account.setId("123");
+		account.setPassword(password);
+		account.setStatus(AccountStatus.Active);
+		System.out.println("Account created!!!");
 	}
 }
