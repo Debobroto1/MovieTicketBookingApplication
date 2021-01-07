@@ -1,3 +1,4 @@
+//Array Runner
 package com.runner;
 
 import java.util.Scanner;
@@ -10,18 +11,22 @@ public class Runner {
 	private static Admin[] adminUser;
 	private static String userPassword;
 	private static Scanner sc;
+	private static int index=0;
 
 	public static void main(String[] args) {
 		userAddress =new Address[10];
 		adminUser=new Admin[10];
 		
 		sc=new Scanner(System.in);
+		String userChoice="y";
 		System.out.println("=============Welcome to the  MTB Application==============");
 		System.out.println("What you want to do  today");
+		while(userChoice.equalsIgnoreCase("Y")) {
 		System.out.println("1. Add Admin");
 		System.out.println("2. Add Customer");
 		System.out.println("3. FDO");
-		System.out.println("Enter a choice [1 to 3]");
+		System.out.println("4. GetInfo");
+		System.out.println("Enter a choice [1 to 4]");
 
 		// You want to take input from the user
 		short userOption = sc.nextShort();
@@ -29,7 +34,7 @@ public class Runner {
 		System.out.println("You have eneter the option " +userOption);
 		addPersonalInfo();
 		setAddressInfo();
-		getAccountInfo(adminUser);
+		getAccountInfo(adminUser[index-1]);
 		}
 		else if  (userOption == 2) {
 			System.out.println("Enter Customer");
@@ -37,9 +42,21 @@ public class Runner {
 		else if  (userOption == 3) {
 			System.out.println("Enter FDO");
 		}
-		else
+		else if  (userOption == 4) {
+			System.out.println("Entering ID");
+			short id=sc.nextShort();
+			getAccountInfo(adminUser[id]);
+		}
+		else {
 			System.out.println("Invalid Input ,retry again!!!!!!!!");
+			}
+		System.out.println("Do you want to continue? Y or N :");
+		userChoice=sc.next();
+		System.out.println("Yoour choice " +userChoice);
 	}
+		System.out.println("Thank you and have a good day!!");
+	}
+	
 	private static void getAccountInfo(Admin user) {
 		System.out.println(user.getEmailAddress());
 		System.out.println(user.getName());
@@ -69,8 +86,9 @@ public class Runner {
 		address.setCountry(userCountry);
 		address.setState(userState);
 		address.setZipcode(userPincode);
-		adminUser.setAddress(address);
-		adminUser.createAccount(userPassword);
+		adminUser[index].setAddress(address);
+		adminUser[index].createAccount(userPassword);
+		index=index+1;
 	}
 	private static void addPersonalInfo() {
 		// TODO Auto-generated method stub
@@ -86,10 +104,10 @@ public class Runner {
 		System.out.println("Set a password");
 		userPassword = sc.nextLine();
 
-		adminUser[0] = new Admin();
-		adminUser[0].setName(userName);
-		adminUser[0].setEmailAddress(userEmailAddress);
-		adminUser[0].setPhoneNumber(userPhonenumber);
+		adminUser[index] = new Admin();
+		adminUser[index].setName(userName);
+		adminUser[index].setEmailAddress(userEmailAddress);
+		adminUser[index].setPhoneNumber(userPhonenumber);
 
 //		PavaSystem.out.println("Account created successfully");
 	}

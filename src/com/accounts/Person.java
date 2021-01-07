@@ -48,5 +48,6 @@ public class Person {
 		account.setPassword(password);
 		account.setStatus(AccountStatus.Active);
 		System.out.println("Account created!!!");
+		
 	}
 }
