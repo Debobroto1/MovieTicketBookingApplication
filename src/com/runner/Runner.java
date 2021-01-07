@@ -6,12 +6,15 @@ import com.accounts.Admin;
 import com.datatypes.Address;
 
 public class Runner {
-	private static Address userAddress;
-	private static Admin adminUser;
+	private static Address[] userAddress;
+	private static Admin[] adminUser;
 	private static String userPassword;
 	private static Scanner sc;
 
 	public static void main(String[] args) {
+		userAddress =new Address[10];
+		adminUser=new Admin[10];
+		
 		sc=new Scanner(System.in);
 		System.out.println("=============Welcome to the  MTB Application==============");
 		System.out.println("What you want to do  today");
@@ -83,10 +86,10 @@ public class Runner {
 		System.out.println("Set a password");
 		userPassword = sc.nextLine();
 
-		Admin admin = new Admin();
-		admin.setName(userName);
-		admin.setEmailAddress(userEmailAddress);
-		admin.setPhoneNumber(userPhonenumber);
+		adminUser[0] = new Admin();
+		adminUser[0].setName(userName);
+		adminUser[0].setEmailAddress(userEmailAddress);
+		adminUser[0].setPhoneNumber(userPhonenumber);
 
 //		PavaSystem.out.println("Account created successfully");
 	}
